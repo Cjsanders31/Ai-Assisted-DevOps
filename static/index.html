@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Papertrail | PDF intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar"><a class="brand" href="/"><span class="brand-mark">P</span><span>papertrail</span></a><div class="status"><span class="status-dot"></span><span id="statusText">Index warming up</span></div></header>
+      <section class="hero"><p class="eyebrow">PRIVATE PDF INTELLIGENCE</p><h1>Ask the stack.<br /><em>Find the signal.</em></h1><p class="lede">A focused reading room for your research library. Upload PDFs, ask a sharp question, and follow every answer back to the page.</p></section>
+      <section class="workspace">
+        <section class="chat-panel" aria-label="Chat with your PDF library">
+          <div class="chat-heading"><div><p class="eyebrow">YOUR RESEARCH CHAT</p><h2>Ask a question</h2></div><span class="chat-mode">GROUNDED IN YOUR PDFs</span></div>
+          <div id="chatMessages" class="chat-messages" aria-live="polite" aria-relevant="additions text">
+            <article class="message assistant-message"><div class="message-avatar">P</div><div class="message-body"><span class="message-label">PAPERTRAIL</span><p>Hi! I can help you find answers in the PDFs in your library. Ask a question to get started; I’ll show the passages I used.</p></div></article>
+          </div>
+          <form id="askForm" class="composer"><label class="sr-only" for="query">Your question</label><textarea id="query" rows="2" placeholder="Ask about your PDFs…" autofocus required></textarea><div class="form-footer"><span class="hint">Enter to send · Shift + Enter for a new line</span><button id="sendButton" type="submit">Send <span>↗</span></button></div></form>
+          <div class="suggestions" aria-label="Suggested questions"><button type="button" data-question="What themes appear across these reports?">Cross-document themes</button><button type="button" data-question="What are the biggest risks discussed?">Biggest risks</button><button type="button" data-question="Which findings are most actionable?">Actionable findings</button></div>
+        </section>
+        <aside class="library-panel"><div class="panel-heading"><span>LIBRARY</span><span id="docCount">0 PDFs</span></div><div id="library" class="library-list"></div><label class="upload"><span>＋</span> Add PDFs<input id="fileInput" type="file" accept="application/pdf" multiple /></label></aside>
+      </section>
+      <footer><span>LOCAL-FIRST RESEARCH TOOL</span><span>TF-IDF RETRIEVAL · PAGE-AWARE SOURCES</span></footer>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
