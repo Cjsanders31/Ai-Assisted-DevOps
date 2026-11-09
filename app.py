@@ -14,6 +14,24 @@ PDF_DIR = ROOT
 store = PDFStore(PDF_DIR)
 store.ingest()
 
+
+class LocalRAG:
+    def __init__(self, source_dir: Any = None) -> None:
+        self.source_dir = Path(source_dir) if source_dir is not None else ROOT
+        self.store = PDFStore(self.source_dir)
+        self._built = False
+
+    def build(self) -> int:
+        result = self.store.ingest()
+        self._built = True
+        return result.get("chunks", len(self.store.chunks))
+
+    def search(self, query: str, top_k: int = 5):
+        if not self._built:
+            self.build()
+        return self.store.search(query, limit=top_k)
+
+
 app = FastAPI(title="Papertrail RAG")
 app.mount("/static", StaticFiles(directory=ROOT / "static"), name="static")
 
